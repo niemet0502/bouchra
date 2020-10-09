@@ -7,6 +7,12 @@
         return $bdd->query($req)->fetchAll();
     }
 
+    function findProduitById($id){
+        global $bdd;
+        $req="SELECT * FROM produit, categorie WHERE idCategorieF=idCategorie AND idProduit='$id'";
+        return $bdd->query($req)->fetch();
+    }
+
     function addProduit($libelle,$prix,$photo,$categorie,$stock){
         global $bdd;
         $req="INSERT INTO produit (libelleProduit, stock, seuil,prix, idCategorieF,photo)

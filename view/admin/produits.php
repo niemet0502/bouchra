@@ -47,6 +47,7 @@
                     ?>
                         <tr>
                             <td>
+                            
 
                                     <img src="http://localhost/bouchra/controller/upload/<?=$produit['photo']?>" class="img-fluid" width="35px" alt="">
                                 </td>

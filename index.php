@@ -23,57 +23,9 @@
 	</style>
 </head>
 <body style="background-color: #F8F8F8">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="#">
-		<img src="images/logo.jpeg" class="img-fluid" width="100px" alt="">
-	</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse justify-content-end align-items-center pr-4" id="navbarNav">
-		<ul class="navbar-nav">
-		<li class="nav-item active">
-			<a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="#legumes">Legume</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="#Fruits">Fruits</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="#Condiments">Condiment</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="/bouchra/admin.php"><button class="btn btn-secondary">ADMIN</button></a>
-		</li>
-		</ul>
-	</div>
-	</nav>
-	
-	<section>
-		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-				<img class="d-block  w-100" src="images/carousel1.jpeg" alt="First slide" style="height: 450px">
-				</div>
-				<div class="carousel-item">
-				<img class="d-block  w-100" src="images/carousel2.jpeg" alt="Second slide" style="height: 450px">
-				</div>
-				<div class="carousel-item">
-				<img class="d-block  w-100" src="images/carousel3.jpg" alt="Third slide" style="height: 450px">
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	</section>
+	<?php 
+		include_once('navbar.php');
+	?>
 	<table height="200px">
 			<tr>
 				<td>
@@ -89,10 +41,12 @@
 						<div class="col-md-3 p-5">
 							<div style="background: white; height: 300px; border-radius: 5px; box-shadow: 0px 2px 1px 2px rgba(0,0,0,0.25);">
 								<div class="p-3">
-									<img src="http://localhost/bouchra/controller/upload/<?=$legume['photo']?>" class="img-fluid" alt="" style="max-height: 170px;">
+									<a href="unproduit.php?produit=<?=$legume['idProduit']?>">
+										<img src="http://localhost/bouchra/controller/upload/<?=$legume['photo']?>" class="img-fluid" alt="" style="max-height: 170px;">
+									</a>
 								</div>
 								<h6 class="text-center"><?=$legume['libelleProduit']?></h6>
-								<h3 class="text-center"><?=$legume['prix']?></h3>
+								<h3 class="text-center"><?=$legume['prix']?>  FCFA</h3>
 							</div>
 						</div>
 					<?php
@@ -110,10 +64,12 @@
 						<div class="col-md-3 p-5">
 							<div style="background: white; height: 300px; border-radius: 5px; box-shadow: 0px 2px 1px 2px rgba(0,0,0,0.25);">
 								<div class="p-3">
-									<img src="http://localhost/bouchra/controller/upload/<?=$fruit['photo']?>" class="img-fluid" alt="" style="max-height: 170px;">
+									<a href="unproduit.php?produit=<?=$fruit['idProduit']?>">
+										<img src="http://localhost/bouchra/controller/upload/<?=$fruit['photo']?>" class="img-fluid" alt="" style="max-height: 170px;">
+									</a>
 								</div>
 								<h6 class="text-center"><?=$fruit['libelleProduit']?></h6>
-								<h3 class="text-center"><?=$fruit['prix']?></h3>
+								<h3 class="text-center"><?=$fruit['prix']?>  FCFA</h3>
 							</div>
 						</div>
 					<?php
@@ -131,10 +87,12 @@
 						<div class="col-md-3 p-5">
 							<div style="background: white; height: 300px; border-radius: 5px; box-shadow: 0px 2px 1px 2px rgba(0,0,0,0.25);">
 								<div class="p-3">
-									<img src="http://localhost/bouchra/controller/upload/<?=$condiment['photo']?>" class="img-fluid" alt="" style="max-height: 170px;">
+									<a href="unproduit.php?produit=<?=$condiment['idProduit']?>">
+										<img src="http://localhost/bouchra/controller/upload/<?=$condiment['photo']?>" class="img-fluid" alt="" style="max-height: 170px;">
+									</a>
 								</div>
 								<h6 class="text-center"><?=$condiment['libelleProduit']?></h6>
-								<h3 class="text-center"><?=$condiment['prix']?></h3>
+								<h3 class="text-center"><?=$condiment['prix']?>  FCFA</h3>
 							</div>
 						</div>
 					<?php
