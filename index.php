@@ -1,5 +1,9 @@
 <?php
 	session_start();
+	require_once('model/produitModel.php');
+	$condiments = getCondiment();
+	$fruits = getFruit();
+	$legumes = getLegume();
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +22,7 @@
 		}
 	</style>
 </head>
-<body>
+<body style="background-color: #F8F8F8">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand" href="#">
 		<img src="images/logo.jpeg" class="img-fluid" width="100px" alt="">
@@ -35,10 +39,10 @@
 			<a class="nav-link" href="#legumes">Legume</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="#">Fruits</a>
+			<a class="nav-link" href="#Fruits">Fruits</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="#">Condiment</a>
+			<a class="nav-link" href="#Condiments">Condiment</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="/bouchra/admin.php"><button class="btn btn-secondary">ADMIN</button></a>
@@ -46,7 +50,7 @@
 		</ul>
 	</div>
 	</nav>
-
+	
 	<section>
 		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner">
@@ -70,15 +74,73 @@
 			</a>
 		</div>
 	</section>
-	<table height="400px">
-	
-	<tr>
-		<td>
-		</td>
-	</tr></table>
+	<table height="200px">
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</table>
+	<div id="legumes" class="col-md-10 offset-1">
+		<h4 class="text-center">Legumes</h4>
+		<div class="row">
+			<?php
+				foreach ($legumes as  $legume) {
+					?>
+						<div class="col-md-3 p-5">
+							<div style="background: white; height: 300px; border-radius: 5px; box-shadow: 0px 2px 1px 2px rgba(0,0,0,0.25);">
+								<div class="p-3">
+									<img src="http://localhost/bouchra/controller/upload/<?=$legume['photo']?>" class="img-fluid" alt="" style="max-height: 170px;">
+								</div>
+								<h6 class="text-center"><?=$legume['libelleProduit']?></h6>
+								<h3 class="text-center"><?=$legume['prix']?></h3>
+							</div>
+						</div>
+					<?php
+				}
+			?>
+		</div>
+	</div>
 
-	<div id="legumes">
-		<h1>Legume</h1>
+	<div id="Fruits" class="col-md-10 offset-1 mt-5">
+		<h4 class="text-center">Fruit</h4>
+		<div class="row">
+			<?php
+				foreach ($fruits as  $fruit) {
+					?>
+						<div class="col-md-3 p-5">
+							<div style="background: white; height: 300px; border-radius: 5px; box-shadow: 0px 2px 1px 2px rgba(0,0,0,0.25);">
+								<div class="p-3">
+									<img src="http://localhost/bouchra/controller/upload/<?=$fruit['photo']?>" class="img-fluid" alt="" style="max-height: 170px;">
+								</div>
+								<h6 class="text-center"><?=$fruit['libelleProduit']?></h6>
+								<h3 class="text-center"><?=$fruit['prix']?></h3>
+							</div>
+						</div>
+					<?php
+				}
+			?>
+		</div>
+	</div>
+
+	<div id="Condiments" class="col-md-10 offset-1 mt-5">
+		<h4 class="text-center">Condiment</h4>
+		<div class="row">
+			<?php
+				foreach ($condiments as  $condiment) {
+					?>
+						<div class="col-md-3 p-5">
+							<div style="background: white; height: 300px; border-radius: 5px; box-shadow: 0px 2px 1px 2px rgba(0,0,0,0.25);">
+								<div class="p-3">
+									<img src="http://localhost/bouchra/controller/upload/<?=$condiment['photo']?>" class="img-fluid" alt="" style="max-height: 170px;">
+								</div>
+								<h6 class="text-center"><?=$condiment['libelleProduit']?></h6>
+								<h3 class="text-center"><?=$condiment['prix']?></h3>
+							</div>
+						</div>
+					<?php
+				}
+			?>
+		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
