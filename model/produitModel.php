@@ -16,7 +16,7 @@
     function addProduit($libelle,$prix,$photo,$categorie,$stock){
         global $bdd;
         $req="INSERT INTO produit (libelleProduit, stock, seuil,prix, idCategorieF,photo)
-        VALUES ('$libelle', '$stock','$prix', 1, '$categorie', '$photo')";
+        VALUES ('$libelle', '$stock',1, '$prix', '$categorie', '$photo')";
         $bdd->exec($req);
     }
 
@@ -41,5 +41,11 @@
     function getCondiment(){
         global $bdd;
         $req="SELECT * FROM produit, categorie WHERE idCategorieF=idCategorie AND idCategorieF=3";
+        return $bdd->query($req)->fetchAll();
+    }
+
+    function getSection(){
+        global $bdd;
+        $req="SELECT * FROM section";
         return $bdd->query($req)->fetchAll();
     }

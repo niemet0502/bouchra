@@ -1,6 +1,8 @@
 <?php 
+    session_start();
     require_once('model/produitModel.php');
     $produit = findProduitById($_GET['produit']);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +28,11 @@
                 <h5>Quantite: <?= $produit['stock']?></h5>
 
                 <div class="d-flex mt-5">
-                    <input type="number" name="" id="" class="col-md-2 form-control">
-                    <button type="submit" class="btn btn-primary ml-2">Ajouter au panier</button>
+                    <form action="/bouchra/controller/panierController.php" method="post" class="d-flex mt-5 col-md-12">
+                        <input type="number" name="qte" value="1" id="" min="1" max="<?= $produit['stock']?>" class="col-md-2 form-control">
+                        <button type="submit" name="ajoutPanier" class="btn btn-primary ml-2">Ajouter au panier</button>
+                        <input type="text" name="idProduit" value="<?= $produit['idProduit']?>" hidden>
+                    </form>
                 </div>
             </div>
         </div>

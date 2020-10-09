@@ -4,6 +4,12 @@
 	$condiments = getCondiment();
 	$fruits = getFruit();
 	$legumes = getLegume();
+
+	if(!isset($_SESSION['panier'])){
+		$_SESSION['panier'] = array();
+		$_SESSION['panier']['idProduit'] = array();
+		$_SESSION['panier']['qte'] = array();
+	}
 ?>
 
 <!DOCTYPE html>
