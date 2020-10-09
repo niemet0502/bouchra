@@ -15,5 +15,6 @@
 
     function getLastId(){
         global $bdd;
-        $req="SELECT M"
+        $req="SELECT MAX(idClient) FROM client";
+        return $bdd->query($req)->fetch();
     }
