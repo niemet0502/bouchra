@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 09 oct. 2020 à 14:12
+-- Généré le : ven. 09 oct. 2020 à 17:31
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -54,6 +54,13 @@ CREATE TABLE `client` (
   `Telephone` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `client`
+--
+
+INSERT INTO `client` (`idClient`, `nomClient`, `prenomClient`, `Telephone`) VALUES
+(1, 'Niemet', 'Marius', '76125367125');
+
 -- --------------------------------------------------------
 
 --
@@ -68,6 +75,13 @@ CREATE TABLE `commande` (
   `total` varchar(255) NOT NULL,
   `Quantite` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`idCommande`, `numCommande`, `idClient`, `idSecteur`, `total`, `Quantite`) VALUES
+(1, 'CMD-00', 1, 2, '604', 5);
 
 -- --------------------------------------------------------
 
@@ -104,7 +118,10 @@ CREATE TABLE `produit` (
 INSERT INTO `produit` (`idProduit`, `libelleProduit`, `stock`, `seuil`, `prix`, `idCategorieF`, `photo`) VALUES
 (1, 'carotte', 3, 250, '1', 1, 'carotte.jpeg'),
 (2, 'pain', 25, 25, '1', 2, 'poivron.jpeg'),
-(3, 'Poivron', 5, 500, '1', 2, 'WhatsApp Image 2020-10-07 at 19.31.57.jpeg');
+(3, 'Poivron', 5, 500, '1', 2, 'WhatsApp Image 2020-10-07 at 19.31.57.jpeg'),
+(4, 'Langage C', 5, 3, '1', 3, 'WhatsApp Image 2020-10-07 at 19.29.57.jpeg'),
+(5, 'Genie Logiciel', 5, 5000, '1', 3, 'WhatsApp Image 2020-10-07 at 19.31.58.jpeg'),
+(6, 'Genie Marius', 5, 1, '600', 3, 'WhatsApp Image 2020-10-07 at 19.31.56 (2).jpeg');
 
 -- --------------------------------------------------------
 
@@ -114,9 +131,17 @@ INSERT INTO `produit` (`idProduit`, `libelleProduit`, `stock`, `seuil`, `prix`, 
 
 CREATE TABLE `section` (
   `idSection` int(11) NOT NULL,
-  `libelleSection` int(11) NOT NULL,
+  `libelleSection` varchar(255) NOT NULL,
   `prixSection` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `section`
+--
+
+INSERT INTO `section` (`idSection`, `libelleSection`, `prixSection`) VALUES
+(1, 'Medina', 1000),
+(2, 'OUakam', 1500);
 
 -- --------------------------------------------------------
 
@@ -204,25 +229,25 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `idClient` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idClient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `idCommande` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCommande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `idProduit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idProduit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `section`
 --
 ALTER TABLE `section`
-  MODIFY `idSection` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSection` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `user`

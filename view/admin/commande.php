@@ -1,5 +1,7 @@
 <?php
     include_once('index.php');
+    require_once('../../model/commandeModel.php');
+    $commandes = getAllCommande();
 ?>
 <style>
     .commande{
@@ -23,57 +25,29 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                    <a href="">CMD-001</a>
-                       
-                    </td>
-                <td>
-                   Bineta NDIAYE
-                </td>
-                <td>Dakar Plateau</td>
-                <td>4500 FCFA</td>
-                <td>3</td>
-                <td>
-                    <button class="btn btn-warning">MODIFIER</button>
-                    <button class="btn btn-danger">SUPPRIMER</button>
-                    
-                </td>
-                </tr>
-                <tr>
-                    <td>
-                    <a href="">CMD-002</a>
-                       
-                    </td>
-                <td>
-                   Ndeye Mar 
-                </td>
-                <td>Liberté 6</td>
-                <td>7500 FCFA</td>
-                <td>4</td>
-                <td>
-                    <button class="btn btn-warning">MODIFIER</button>
-                    <button class="btn btn-danger">SUPPRIMER</button>
-                    
-                </td>
-                </tr>
-                <tr>
-                    <td>
-                    <a href="">CMD-003</a>
-                       
-                    </td>
-                <td>
-                   Abdoul Bachir
-                </td>
-                <td>Médina</td>
-                <td>1500 FCFA</td>
-                <td>1</td>
-                <td>
-                    <button class="btn btn-warning">MODIFIER</button>
-                    <button class="btn btn-danger">SUPPRIMER</button>
-                    
-                </td>
-                </tr>
+            <?php
+                foreach ($commandes as $commande) {
+                    ?>
+                    <tr>
+                            <td>
+                            <a href=""><?= $commande['numCommande']?></a>
+                            
+                            </td>
+                        <td>
+                            <?= $commande['nomClient']?> &nbsp;  <?= $commande['prenomClient']?>
+                        </td>
+                        <td> <?= $commande['libelleSection']?></td>
+                        <td> <?= $commande['total']?></td>
+                        <td> <?= $commande['Quantite']?></td>
+                        <td>
+                            <button class="btn btn-warning">MODIFIER</button>
+                            <button class="btn btn-danger">SUPPRIMER</button>
+                            
+                        </td>
+                    </tr>
+                    <?php
+                }
+            ?>
             </tbody>
             </table>
         </div>
