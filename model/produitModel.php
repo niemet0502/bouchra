@@ -19,3 +19,21 @@
         $req="SELECT * FROM produit, categorie WHERE idCategorieF=idCategorie";
         return $bdd->query($req)->fetchAll();
     }
+
+    function getLegume(){
+        global $bdd;
+        $req="SELECT * FROM produit, categorie WHERE idCategorieF=idCategorie AND idCategorieF=1";
+        return $bdd->query($req)->fetchAll();
+    }
+
+    function getFruit(){
+        global $bdd;
+        $req="SELECT * FROM produit, categorie WHERE idCategorieF=idCategorie AND idCategorieF=2";
+        return $bdd->query($req)->fetchAll();
+    }
+
+    function getCondiment(){
+        global $bdd;
+        $req="SELECT * FROM produit, categorie WHERE idCategorieF=idCategorie AND idCategorieF=3";
+        return $bdd->query($req)->fetchAll();
+    }
