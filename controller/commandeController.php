@@ -6,5 +6,11 @@
     if(isset($_POST['commande'])){
         extract($_POST);
         addClient($nom,$prenom,$telephone);
-        var_dump(getLastId());
+        $id = getLastId();
+        $numero =  numCommande();
+        addCommande($numero,$id,$secteur,$total,$qte);
+        $_SESSION['panier'] = array();
+		$_SESSION['panier']['idProduit'] = array();
+		$_SESSION['panier']['qte'] = array();
+        header('Location: /bouchra/panier.php?success=1');
     }

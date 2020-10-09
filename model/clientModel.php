@@ -17,6 +17,5 @@
         global $bdd;
         $req="SELECT MAX(idClient) FROM client";
         $res = $bdd->query($req)->fetch();
-
         return $res[0];
     }

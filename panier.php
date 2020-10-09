@@ -18,6 +18,15 @@
 		include_once('navbar.php');
 	?>
     <div class="col-md-10 offset-1 mt-5 mb-5">
+        <?php
+            if(isset($_GET['success'])){
+                ?>
+                    <p class="alert alert-success">
+                        Votre commande a ete valider
+                    </p>
+                <?php
+            }
+        ?>
         <h2 class="text-center">Votre Panier</h2>
         <table class="table mb-5 mt-5">
             <thead>
@@ -65,6 +74,8 @@
         </table>
         <div class="col-md-8">
             <form action="/bouchra/controller/commandeController.php" method="post">
+                    <input type="number" name="total" value="<?=$total?>" id="" hidden>
+                    <input type="number" name="qte" value="<?=$cmd?>" id=""  hidden>
                     <div class="row form-group">
                         <div class="col-md">
                             <label for="">Nom</label>
@@ -82,11 +93,11 @@
                         </div>
                         <div class="col-md">
                             <label for="">Section</label>
-                            <select name="" id="" class="form-control">
+                            <select name="secteur" id="" class="form-control">
                                 <?php
                                     foreach ($sections as  $section) {
                                         ?>
-                                            <option value=""><?=$section['libelleSection']?> &nbsp; <?=$section['prixSection']?> &nbsp; FCFA</option>
+                                            <option value="<?=$section['idSection']?>"><?=$section['libelleSection']?> &nbsp; <?=$section['prixSection']?> &nbsp; FCFA</option>
                                        <?php
                                     }
                                 ?>
