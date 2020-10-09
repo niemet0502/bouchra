@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 09 oct. 2020 à 17:31
+-- Généré le : ven. 09 oct. 2020 à 17:37
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -162,8 +162,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`idUser`, `nomUser`, `prenomUser`, `login`, `mdp`) VALUES
-(1, 'NIEMET', 'Marius', 'marius@isi.sn', 'passer2019'),
-(2, 'Niemet', 'Marius', 'marius@isi.snn', '');
+(1, 'binta', 'binta', 'binta@gmail.com', 'passer2019');
 
 --
 -- Index pour les tables déchargées

@@ -1,8 +1,7 @@
 <?php
-include_once('index.php');
-    if(sizeof($_SESSION)==0){
-        header('Location: /bouchra/admin.php');
-    }
+    include_once('index.php');
+    require_once('../../model/clientModel.php');
+    $clients = getAllClient();
     
 ?>
 <style>
@@ -27,57 +26,28 @@ include_once('index.php');
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                    <a href="">1</a>
-                       
-                    </td>
-                <td>
-                Bachir
-                </td>
-                <td> Abdoul</td>
-                <td>705520077</td>
-                <td>3</td>
-                <td>
-                    <button class="btn btn-warning">MODIFIER</button>
-                    <button class="btn btn-danger">SUPPRIMER</button>
-                    
-                </td>
-                </tr>
-                <tr>
-                    <td>
-                    <a href="">2</a>
-                       
-                    </td>
-                <td>
-                    Mar 
-                </td>
-                <td>Ndeye</td>
-                <td>767774477</td>
-                <td>4</td>
-                <td>
-                    <button class="btn btn-warning">MODIFIER</button>
-                    <button class="btn btn-danger">SUPPRIMER</button>
-                    
-                </td>
-                </tr>
-                <tr>
-                    <td>
-                    <a href="">2</a>
-                       
-                    </td>
-                <td>
-                 NDIAYE
-                </td>
-                <td>Bineta</td>
-                <td>76885522</td>
-                <td>4</td>
-                <td>
-                    <button class="btn btn-warning">MODIFIER</button>
-                    <button class="btn btn-danger">SUPPRIMER</button>
-                    
-                </td>
-                </tr>
+                <?php
+                    foreach ($clients as $client) {
+                        ?>
+                        <tr>
+                            <td>
+                            <a href=""><?= $client['idClient']?></a>
+                            </td>
+                        <td>
+                        <?= $client['nomClient']?>
+                        </td>
+                        <td> <?= $client['prenomClient']?></td>
+                        <td><?= $client['Telephone']?></td>
+                        <td>3</td>
+                        <td>
+                            <button class="btn btn-warning">MODIFIER</button>
+                            <button class="btn btn-danger">SUPPRIMER</button>
+                            
+                        </td>
+                        </tr>
+                        <?php
+                    }
+                ?>
             </tbody>
             </table>
         </div>

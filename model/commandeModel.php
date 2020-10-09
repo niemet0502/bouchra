@@ -18,7 +18,8 @@
         global $bdd;
         $req="SELECT MAX(idClient) FROM commande";
         $res = $bdd->query($req)->fetch();
-        return "CMD-00".$res[0]+1;
+        $ress = $res[0]+1;
+        return "CMD-00".$ress;
     }
 
     function addCommande($numero,$client,$secteur,$total,$qte){
